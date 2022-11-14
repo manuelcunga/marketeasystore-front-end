@@ -1835,6 +1835,16 @@ ajv@^8.0.0, ajv@^8.8.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
+"angular-sanitize@>=1.2.15 <1.6":
+  version "1.5.11"
+  resolved "https://registry.yarnpkg.com/angular-sanitize/-/angular-sanitize-1.5.11.tgz#ebfb3f343e543f9b2ef050fb4c2e9ee048d1772f"
+  integrity sha512-9yVOr8YOefo0/4q+ImqNdGcbfGzelQIoHW0OoaoU/U5wpRZNn5IqlkdLW9udieSiprYzuXeqiS1V7ZiHurYisw==
+
+"angular@>=1.2.15 <1.6":
+  version "1.5.11"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.5.11.tgz#8c5ba7386f15965c9acf3429f6881553aada30d6"
+  integrity sha512-09DBOVVWo6rOQfdCBKGfEL0ZZIhf6P3fbeP3BU+ty5FU50DPiavVeDn8hQ4wXE8o4vKEEpzY1aRcRHJMCixWYA==
+
 ansi-colors@4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-4.1.1.tgz#cbb9ae256bf750af1eab344f229aa27fe94ba348"
@@ -4561,6 +4571,21 @@ neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+
+ng-angular-popup@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/ng-angular-popup/-/ng-angular-popup-0.1.2.tgz#138856d59ebcc9e85a92f5b11968e5c21745bcae"
+  integrity sha512-U8U1E/sHcjRISMjtodG9O8cdq3tQo+g7MH0WSckd8iQ5HoUnFnhrdTY+OF/iPEHl6osE4l7o2hzrG1OCz60Brw==
+  dependencies:
+    tslib "^2.3.0"
+
+ng-toast@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ng-toast/-/ng-toast-2.0.0.tgz#7fc133fc05e88690830e87cd3d1f193df1c33483"
+  integrity sha512-IkkbOJEWtzLCC88hAeEXJ9QY6ATEX7tyqfyxAP1QjQHRV4Knwuh71PnyK/d+DkrNoTnhzIs+X5292GTeRIs5kw==
+  dependencies:
+    angular ">=1.2.15 <1.6"
+    angular-sanitize ">=1.2.15 <1.6"
 
 nice-napi@^1.0.2:
   version "1.0.2"
