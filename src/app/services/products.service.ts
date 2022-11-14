@@ -1,21 +1,31 @@
 import { ProductDTO } from './dtos/productDTo';
-import { LoginDTO } from './dtos/login.dto';
 import { Injectable } from '@angular/core';
-import {  Observable, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  apiUrl: string = 'https://32ee-154-118-211-100.sa.ngrok.io/products';
+  apiUrl: string = 'http://localhost:3000/products';
+ 
+
   constructor(private httpClient: HttpClient){ }
 
   RegisterProduct(data: ProductDTO){
-    return this.httpClient.post(this.apiUrl, data).pipe(
+  const token = localStorage.getItem('user_token')
+  
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json',
+    'Authorization': `${token}`})
+  };
+    return this.httpClient.post(this.apiUrl, data,httpOptions).pipe(
       catchError(this.handleError)
     );
+
+ 
+
   }
 
   handleError(error: HttpErrorResponse) {
