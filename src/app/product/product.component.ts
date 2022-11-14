@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
         duration: 2000,
       });
     }
-
+    console.log(form.value)
     this.productService.RegisterProduct(form.value).subscribe(
       (res)=>{
         return this.notification.success({
