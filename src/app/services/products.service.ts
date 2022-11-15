@@ -23,9 +23,7 @@ export class ProductsService {
     return this.httpClient.post(this.apiUrl, data,httpOptions).pipe(
       catchError(this.handleError)
     );
-
  
-
   }
 
   handleError(error: HttpErrorResponse) {
