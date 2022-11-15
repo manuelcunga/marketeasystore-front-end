@@ -8,12 +8,13 @@ import {
 } from "@angular/common/http";
 import { catchError, map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
+import { ProductResponse } from "./dtos/productResponse";
 
 @Injectable({
   providedIn: "root",
 })
 export class ProductsService {
-  apiUrl: string = environment.apiUrl;
+private  apiUrl: string = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -32,7 +33,7 @@ export class ProductsService {
       .pipe(catchError(this.handleError));
   }
 
-  ListALlProducts(): Observable<[]> {
+  ListALlProducts(): Observable<ProductResponse[]> {
     const token = localStorage.getItem("user_token");
     const httpOption = new HttpHeaders().append(
       "Authorization",
@@ -41,7 +42,7 @@ export class ProductsService {
     );
     console.log(httpOption)
     
-    return this.httpClient.get<[]>(`${this.apiUrl}/products`, { headers: httpOption, }
+    return this.httpClient.get<ProductResponse[]>(`${this.apiUrl}/products`, { headers: httpOption, }
     ).pipe(
       map((obj)=> obj),
       catchError(e => this.handleError(e))
