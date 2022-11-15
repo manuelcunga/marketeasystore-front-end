@@ -8,18 +8,18 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProductsService {
-  apiUrl: string = 'http://localhost:3000/products';
+  apiUrl: string = 'https://171b-154-118-211-100.sa.ngrok.io/products';
  
 
   constructor(private httpClient: HttpClient){ }
 
   RegisterProduct(data: ProductDTO){
   const token = localStorage.getItem('user_token')
-  
+    console.log(token)
   const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json',
-    'Authorization': `${token}`})
-  };
+    'Authorization':  String(token)})
+  }; 
     return this.httpClient.post(this.apiUrl, data,httpOptions).pipe(
       catchError(this.handleError)
     );
