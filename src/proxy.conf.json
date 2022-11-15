@@ -1,0 +1,7 @@
+{
+  "/products": {
+      "target": "https://3114-154-118-211-100.sa.ngrok.io",
+      "secure": false,
+      "logLevel": "debug"
+  }
+}

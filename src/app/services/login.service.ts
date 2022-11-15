@@ -3,19 +3,20 @@ import { Injectable } from '@angular/core';
 import {  Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  apiUrl: string = 'https://32ee-154-118-211-100.sa.ngrok.io/login';
+  apiUrl: string = environment.apiUrl;
   
   constructor(private httpClient: HttpClient) { }
 
 
   login(data: LoginDTO): Observable<any>{
 
-    return this.httpClient.post(this.apiUrl, data).pipe(
+    return this.httpClient.post(`${this.apiUrl}/login`, data).pipe(
       catchError(this.handleError)
     );
   }

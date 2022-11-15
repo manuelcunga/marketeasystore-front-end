@@ -4,17 +4,19 @@ import {  Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { RegisterDTO } from './dtos/register.dto';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
-  apiUrl: string = 'https://32ee-154-118-211-100.sa.ngrok.io/users';
+
+  apiUrl: string = environment.apiUrl;
 
   constructor(private httpClient: HttpClient){ }
 
   register(data: RegisterDTO): Observable<any>{
-     return this.httpClient.post(this.apiUrl, data).pipe(
+     return this.httpClient.post(`${this.apiUrl}/users`, data).pipe(
       catchError(this.handleError)
     );
   }
