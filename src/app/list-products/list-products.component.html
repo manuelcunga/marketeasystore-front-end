@@ -35,7 +35,8 @@
                     {{product.category}}
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs  mr-2 font-thin">Edit</a>
+                    <a href="#"   [routerLink]=" ['/produto/', 'editar', product.id] " class="bg-blue-500 p-2
+                     text-white hover:shadow-lg text-xs  mr-2 font-thin">Edit</a>
                      <button class="bg-red-500 p-2
                      text-white hover:shadow-lg text-xs font-thin" (click)="DeleteProduct(product.id)" >
                      Remove
