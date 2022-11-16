@@ -1,6 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { CreateOrdersComponent } from "./create-orders/create-orders.component";
+import { EditOrderComponent } from "./edit-order/edit-order.component";
+import { EditProductComponent } from "./edit-product/edit-product.component";
 import { ListOrdersComponent } from "./list-orders/list-orders.component";
 import { ListProductsComponent } from "./list-products/list-products.component";
 import { LoginComponent } from "./login/login.component";
@@ -40,6 +42,17 @@ const routes: Routes = [
   {
     path: "criar-produtos",
     component: ListOrdersComponent,
+    canActivate: [UserGuard],
+  },
+
+  {
+    path: "produto/editar/:id",
+    component: EditProductComponent,
+    canActivate: [UserGuard],
+  },
+  {
+    path: "pedido/editar/:id",
+    component: EditOrderComponent,
     canActivate: [UserGuard],
   },
 ];
