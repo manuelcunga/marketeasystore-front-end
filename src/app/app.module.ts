@@ -12,6 +12,8 @@ import { ListProductsComponent } from './list-products/list-products.component';
 import { CreateOrdersComponent } from './create-orders/create-orders.component';
 import { ListOrdersComponent } from './list-orders/list-orders.component';
 import { FormsModule } from '@angular/forms';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { EditOrderComponent } from './edit-order/edit-order.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { FormsModule } from '@angular/forms';
     ListProductsComponent,
     CreateOrdersComponent,
     ListOrdersComponent,
+    EditProductComponent,
+    EditOrderComponent,
   ],
   imports: [
     BrowserModule,
