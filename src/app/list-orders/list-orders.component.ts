@@ -22,7 +22,6 @@ export class ListOrdersComponent implements OnInit {
     return this.orderService.ListALlOrders().subscribe(
       (res) => {
        this.orders = res
-       console.log(res)
       },
       (err) => {
         return this.notification.error({
