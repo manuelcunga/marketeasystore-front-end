@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { OrdersService } from '../services/orders.service';
 
@@ -10,7 +11,7 @@ import { OrdersService } from '../services/orders.service';
 })
 export class CreateOrdersComponent implements OnInit {
 
-  constructor(private orderService: OrdersService,  private notification: NgToastService) { }
+  constructor(private orderService: OrdersService,  private notification: NgToastService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,13 +19,16 @@ export class CreateOrdersComponent implements OnInit {
   CreateOrder(form: NgForm){
     console.log(form.value)
       this.orderService.createOrder(form.value)
-      .subscribe((data)=> {
-        return this.notification.success({
-          detail: 'Sucesso!',
-          summary: 'Pedido criado com sucesso!',
-          duration: 2000,
-        });
-      } , (err)=>{
+      .subscribe(
+        (res)=>{
+          return this.notification.success({
+            detail: 'Sucesso!',
+            summary: 'Pedido criado com sucesso!',
+            duration: 2000,
+          }),
+          this.router.navigate(['/list-pedidos'])
+        },
+        (err)=>{
         return this.notification.error({
           detail: 'Erro!',
           summary: 'Erro ao criar Pedido!',
