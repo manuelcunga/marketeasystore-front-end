@@ -25,7 +25,7 @@ export class ListProductsComponent implements OnInit {
       (err) => {
         return this.notification.error({
           detail: 'Erro!',
-          summary: 'Email or password incorrect',
+          summary: 'Erro ao listar Produto',
           duration: 2000,
         });
       }
@@ -40,6 +40,14 @@ export class ListProductsComponent implements OnInit {
         summary: 'Produto deletado com sucesso',
         duration: 2000,
       });
-    })
+    },
+    (err)=>{
+      return this.notification.error({
+        detail: 'Erro!',
+        summary: 'Erro ao deletar pedido',
+        duration: 2000,
+      });
+    }
+    )
   }
 }
