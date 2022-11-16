@@ -17,7 +17,6 @@ export class CreateOrdersComponent implements OnInit {
   }
 
   CreateOrder(form: NgForm){
-    console.log(form.value)
       this.orderService.createOrder(form.value)
       .subscribe(
         (res)=>{
