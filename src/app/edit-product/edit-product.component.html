@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+<main class="bg-gray-900 text-white">
+  <section class="mx-auto flex min-h-screen w-full items-center justify-center">
+    <!-- component -->
+    <div class="bg-grey-lighter">
+      <div
+        class="container max-w-sm flex-1 flex flex-col items-center justify-center px-2"
+      >
+        <div class="bg-white px-6 py-8 rounded shadow-md text-black w-96">
+          <form
+            action=""
+            action=""
+            #form="ngForm"
+            (submit)="updateProduct(form)"
+          >
+            <h1 class="mb-8 text-2xl text-center">Cadastrar Produto</h1>
+            <input
+              type="text"
+              class="block border border-grey-light w-full p-3 rounded mb-4"
+              placeholder="Nome"
+              name="name"
+              ngModel
+            />
+
+            <input
+              type="text"
+              class="block border border-grey-light w-full p-3 rounded mb-4"
+              placeholder="Preço"
+              name="price"
+              ngModel
+            />
+
+            <input
+              type="text"
+              class="block border border-grey-light w-full p-3 rounded mb-4"
+              placeholder="Categoria"
+              name="category"
+              ngModel
+            />
+
+            <button
+              type="submit"
+              class="w-full text-center py-3 rounded bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg my-1"
+            >
+              Registrar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
