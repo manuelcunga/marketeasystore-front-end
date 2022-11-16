@@ -24,7 +24,6 @@ private  apiUrl: string = environment.apiUrl;
       "Authorization",
       "bearer " + token
     );
-    console.log("create",httpOption)
 
     return this.httpClient
       .post(`${this.apiUrl}/product`, data, {
@@ -40,7 +39,6 @@ private  apiUrl: string = environment.apiUrl;
       "bearer " + token,
 
     );
-    console.log(httpOption)
     
     return this.httpClient.get<ProductResponse[]>(`${this.apiUrl}/products`, { headers: httpOption, }
     ).pipe(
@@ -48,6 +46,22 @@ private  apiUrl: string = environment.apiUrl;
       catchError(e => this.handleError(e))
     )
   }
+
+  DeleteProduct(id: string): Observable<ProductResponse[]> {
+    const token = localStorage.getItem("user_token");
+    const httpOption = new HttpHeaders().append(
+      "Authorization",
+      "bearer " + token,
+
+    );
+    
+    return this.httpClient.delete<ProductResponse[]>(`${this.apiUrl}/product/${id}`, { headers: httpOption, }
+    ).pipe(
+      map((obj)=> obj),
+      catchError(e => this.handleError(e))
+    )
+  }
+
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error("An error occurred:", error.error.message);
