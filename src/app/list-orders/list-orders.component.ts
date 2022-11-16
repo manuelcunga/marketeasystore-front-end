@@ -10,18 +10,18 @@ import { OrdersService } from '../services/orders.service';
 })
 export class ListOrdersComponent implements OnInit {
 
-  public products: OrderResponse[] = []
+  public orders: OrderResponse[] = []
 
-  constructor(private orderServiceL: OrdersService, private notification: NgToastService) { }
+  constructor(private orderService: OrdersService, private notification: NgToastService) { }
 
   ngOnInit(): void {
     this.listAllOrders()
   }
 
   listAllOrders(){
-    return this.orderServiceL.ListALlOrders().subscribe(
+    return this.orderService.ListALlOrders().subscribe(
       (res) => {
-       this.products = res
+       this.orders = res
        console.log(res)
       },
       (err) => {
@@ -34,4 +34,22 @@ export class ListOrdersComponent implements OnInit {
     );
   }
 
+  DeleteOrder(id: string){
+    return this.orderService.DeleteOrder(id)
+    .subscribe((data)=>{
+      return this.notification.success({
+        detail: 'Sucesso!',
+        summary: 'Produto deletado com sucesso',
+        duration: 2000,
+      });
+    },
+      (err)=>{
+        return this.notification.error({
+          detail: 'Erro!',
+          summary: 'Erro ao deletar pedido',
+          duration: 2000,
+        });
+      }
+    )
+  }
 }
