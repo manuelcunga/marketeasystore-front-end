@@ -5,7 +5,7 @@
   <h2 class="text-white text-center mt-20 font-medium text-2xl">
     Lista de Produtos
   </h2>
-  <div class="flex mt-32 p-2 mx-auto w-full items-center justify-center">
+  <div class="flex mt-10 p-2 mx-auto w-full items-center justify-center">
     
     <table class="w-9/12">
               <thead class="bg-white border-b">
@@ -36,7 +36,10 @@
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs  mr-2 font-thin">Edit</a>
-                        <a href="#" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
+                     <button class="bg-red-500 p-2
+                     text-white hover:shadow-lg text-xs font-thin" (click)="DeleteProduct(product.id)" >
+                     Remove
+                     </button>
                   </td>
                 </tr>
                 
