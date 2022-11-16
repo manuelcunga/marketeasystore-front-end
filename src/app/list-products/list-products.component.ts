@@ -31,4 +31,15 @@ export class ListProductsComponent implements OnInit {
       }
     );
   }
+
+  DeleteProduct(id: string){
+    return this.productService.DeleteProduct(id)
+    .subscribe((data)=>{
+      return this.notification.success({
+        detail: 'Sucesso!',
+        summary: 'Produto deletado com sucesso',
+        duration: 2000,
+      });
+    })
+  }
 }
