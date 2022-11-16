@@ -2,6 +2,7 @@ import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../services/products.service';
 import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -10,7 +11,7 @@ import { NgToastService } from 'ng-angular-popup';
 })
 export class ProductComponent implements OnInit {
 
-  constructor( private notification: NgToastService, private productService: ProductsService) { }
+  constructor( private notification: NgToastService, private productService: ProductsService,  private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,14 +24,14 @@ export class ProductComponent implements OnInit {
         duration: 2000,
       });
     }
-    console.log(form.value)
     this.productService.RegisterProduct(form.value).subscribe(
       (res)=>{
         return this.notification.success({
           detail: 'Sucesso!',
           summary: 'Produto criado com sucesso!',
           duration: 2000,
-        });
+        }),
+        this.router.navigate(['/produtos'])
       },
       (err)=>{
         return this.notification.error({
